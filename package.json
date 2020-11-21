@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/BrianWhelanDublin/milestone2-cypress-test/issues"
   },
-  "homepage": "https://github.com/BrianWhelanDublin/milestone2-cypress-test#readme"
+  "homepage": "https://github.com/BrianWhelanDublin/milestone2-cypress-test#readme",
+  "devDependencies": {
+    "cypress": "^5.6.0"
+  }
 }
