@@ -29,9 +29,18 @@ describe("Test Homepage", () => {
         cy.get("#destinations").scrollIntoView()
         cy.get(".destination-heading").should("contain", "Our Destinations")
         cy.get("#cities-slider").scrollIntoView()
-        cy.get("#cities-slider").children(".destination-card")
+        cy.get("#cities-slider").within(() => {
+            cy.get(".destination-card").each(($el) => {
+                expect($el).to.exist
+            })
+        })
+
         cy.get("#beach-slider").scrollIntoView()
-        cy.get("#beach-slider").children(".destination-card")
+        cy.get("#beach-slider").within(() => {
+            cy.get(".destination-card").each(($el) => {
+                expect($el).to.exist
+            })
+        })
     })
     it("Tests Reviews section", () => {
         cy.get("#reviews").scrollIntoView()
@@ -84,6 +93,4 @@ describe("Test Homepage", () => {
     it("Tests footer", () => {
         cy.get(".social-media-links").should("have.attr", "target", "_blank")
     })
-
-
 })
