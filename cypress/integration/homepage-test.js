@@ -2,15 +2,6 @@ describe("Test Homepage", () => {
     it("Visits milestone project", () => {
         cy.visit("https://brianwhelandublin.github.io/milestone-project-2/index.html")
     })
-    it("Tests Navigation", () => {
-        cy.get(".navigation-list").should("be.hidden")
-            // click hamburger button should open nav
-        cy.get(".hamburger").click()
-        cy.get(".navigation-list").should("be.visible")
-            // click x button should close nav
-        cy.get(".hamburger").click()
-        cy.get(".navigation-list").should("be.hidden")
-    })
     it("Tests title", () => {
         cy.get(".main-title").should("contain", "Great Escapes")
         cy.get(".hero-text")
