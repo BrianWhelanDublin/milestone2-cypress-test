@@ -1,53 +1,52 @@
-/*
+// bookin page no destination selected
 describe("Test booking enquiry page", () => {
-    it("Visits booking page", () => {
-        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html")
-    })
-    it("Checks navigation", () => {
-        cy.get(".navigation-list").should("be.hidden")
-        cy.get(".hamburger").click()
-        cy.get(".navigation-list").should("be.visible")
-        cy.get(".navigation-link").then(item => {
-            expect(item[0]).to.contain.text("Home");
-            expect(item[0]).to.have.attr("href", "index.html#home")
-            expect(item[1]).to.contain.text("About")
-            expect(item[1]).to.have.attr("href", "index.html#about")
-            expect(item[2]).to.contain.text("All Destinations")
-            expect(item[2]).to.have.attr("href", "index.html#destinations")
-            expect(item[3]).to.contain.text("Package Specials")
-            expect(item[3]).to.have.attr("href", "index.html#special-packages")
-            expect(item[4]).to.contain.text("Reviews")
-            expect(item[4]).to.have.attr("href", "index.html#reviews")
-            expect(item[5]).to.contain.text("Contact")
-            expect(item[5]).to.have.attr("href", "index.html#contact")
+        it("Visits booking page", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html")
         })
-        cy.get(".hamburger").click()
-        cy.get(".navigation-list").should("be.hidden")
-    })
-    it("Completes booking form", () => {
-        cy.get("#booking-modal").should("be.hidden")
-        cy.get("#destination-bf").type("London")
-        cy.get("#package-bf").type("3 star")
-        cy.get("#firstname-bf").type("John")
-        cy.get("#surname-bf").type("Doe")
-        cy.get("#emailaddress-bf").type("johndoe@email.com")
-        cy.get("#phone-bf").type("08777777")
-        cy.get("#inputaddress1-bf").type("1 main street")
-        cy.get("#inputaddress2-bf").type("big town")
-        cy.get("#inputcity-bf").type("city")
-        cy.get("#inputprovince-bf").select("Ulster")
-        cy.get("#inputeircode-bf").type("266h888")
-        cy.get("#adults-bf").type("2")
-        cy.get("#arrival-bf").type("2020-12-22")
-        cy.get("#depart-bf").type("2020-12-26")
-        cy.get(".booking-form-btn").click()
-        cy.wait(500).then(() => {
-            cy.get("#booking-modal").should("be.visible")
+        it("Checks navigation", () => {
+            cy.get(".navigation-list").should("be.hidden")
+            cy.get(".hamburger").click()
+            cy.get(".navigation-list").should("be.visible")
+            cy.get(".navigation-link").then(item => {
+                expect(item[0]).to.contain.text("Home");
+                expect(item[0]).to.have.attr("href", "index.html#home")
+                expect(item[1]).to.contain.text("About")
+                expect(item[1]).to.have.attr("href", "index.html#about")
+                expect(item[2]).to.contain.text("All Destinations")
+                expect(item[2]).to.have.attr("href", "index.html#destinations")
+                expect(item[3]).to.contain.text("Package Specials")
+                expect(item[3]).to.have.attr("href", "index.html#special-packages")
+                expect(item[4]).to.contain.text("Reviews")
+                expect(item[4]).to.have.attr("href", "index.html#reviews")
+                expect(item[5]).to.contain.text("Contact")
+                expect(item[5]).to.have.attr("href", "index.html#contact")
+            })
+            cy.get(".hamburger").click()
+            cy.get(".navigation-list").should("be.hidden")
+        })
+        it("Completes booking form", () => {
+            cy.get("#booking-modal").should("be.hidden")
+            cy.get("#destination-bf").type("London")
+            cy.get("#package-bf").type("3 star")
+            cy.get("#firstname-bf").type("John")
+            cy.get("#surname-bf").type("Doe")
+            cy.get("#emailaddress-bf").type("johndoe@email.com")
+            cy.get("#phone-bf").type("08777777")
+            cy.get("#inputaddress1-bf").type("1 main street")
+            cy.get("#inputaddress2-bf").type("big town")
+            cy.get("#inputcity-bf").type("city")
+            cy.get("#inputprovince-bf").select("Ulster")
+            cy.get("#inputeircode-bf").type("266h888")
+            cy.get("#adults-bf").type("2")
+            cy.get("#arrival-bf").type("2020-12-22")
+            cy.get("#depart-bf").type("2020-12-26")
+            cy.get(".booking-form-btn").click()
+            cy.wait(500).then(() => {
+                cy.get("#booking-modal").should("be.visible")
+            })
         })
     })
-})
-*/
-// Dubai
+    // Dubai
 describe("Test by destination and package", () => {
         it("Test for Dubai", () => {
             cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c0")
@@ -265,25 +264,266 @@ describe("Test by destination and package", () => {
     })
     // Tokyo
 describe("Test by destination and package", () => {
-    it("Test for Tokyo", () => {
-        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9")
-        cy.get(".navigation-link").then(item => {
-            expect(item[1]).to.contain.text("Tokyo Page")
-            expect(item[1]).to.have.attr("href", "destination.html?c9")
-            expect(item[2]).to.contain.text("Tokyo Packages")
-            expect(item[2]).to.have.attr("href", "destination.html?c9#destination-packages")
+        it("Test for Tokyo", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Tokyo Page")
+                expect(item[1]).to.have.attr("href", "destination.html?c9")
+                expect(item[2]).to.contain.text("Tokyo Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?c9#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Tokyo")
         })
-        cy.get("#destination-bf").should("have.value", "Tokyo")
+        it("Tests for Tokyo packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9+p1")
+            cy.get("#destination-bf").should("have.value", "Tokyo")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9+p2")
+            cy.get("#destination-bf").should("have.value", "Tokyo")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9+p3")
+            cy.get("#destination-bf").should("have.value", "Tokyo")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
     })
-    it("Tests for Tokyo packages", () => {
-        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9+p1")
-        cy.get("#destination-bf").should("have.value", "Tokyo")
+    // Antiqua
+describe("Test by destination and package", () => {
+        it("Test for Antigua", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b0")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Antigua Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b0")
+                expect(item[2]).to.contain.text("Antigua Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b0#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Antigua")
+        })
+        it("Tests for Antigua packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b0+p1")
+            cy.get("#destination-bf").should("have.value", "Antigua")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b0+p2")
+            cy.get("#destination-bf").should("have.value", "Antigua")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b0+p3")
+            cy.get("#destination-bf").should("have.value", "Antigua")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Bali
+describe("Test by destination and package", () => {
+        it("Test for Bali", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b1")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Bali Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b1")
+                expect(item[2]).to.contain.text("Bali Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b1#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Bali")
+        })
+        it("Tests for Bali packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b1+p1")
+            cy.get("#destination-bf").should("have.value", "Bali")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b1+p2")
+            cy.get("#destination-bf").should("have.value", "Bali")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b1+p3")
+            cy.get("#destination-bf").should("have.value", "Bali")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Capri
+describe("Test by destination and package", () => {
+        it("Test for Capri", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b2")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Capri Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b2")
+                expect(item[2]).to.contain.text("Capri Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b2#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Capri")
+        })
+        it("Tests for Capri packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b2+p1")
+            cy.get("#destination-bf").should("have.value", "Capri")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b2+p2")
+            cy.get("#destination-bf").should("have.value", "Capri")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b2+p3")
+            cy.get("#destination-bf").should("have.value", "Capri")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Fiji
+describe("Test by destination and package", () => {
+        it("Test for Fiji", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b3")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Fiji Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b3")
+                expect(item[2]).to.contain.text("Fiji Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b3#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Fiji")
+        })
+        it("Tests for Fiji packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b3+p1")
+            cy.get("#destination-bf").should("have.value", "Fiji")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b3+p2")
+            cy.get("#destination-bf").should("have.value", "Fiji")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b3+p3")
+            cy.get("#destination-bf").should("have.value", "Fiji")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Koh Phi Phi
+describe("Test by destination and package", () => {
+        it("Test for Koh Phi Phi", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b4")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Koh Phi Phi Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b4")
+                expect(item[2]).to.contain.text("Koh Phi Phi Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b4#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Koh Phi Phi")
+        })
+        it("Tests for Koh Phi Phi packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b4+p1")
+            cy.get("#destination-bf").should("have.value", "Koh Phi Phi")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b4+p2")
+            cy.get("#destination-bf").should("have.value", "Koh Phi Phi")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b4+p3")
+            cy.get("#destination-bf").should("have.value", "Koh Phi Phi")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Maldives
+describe("Test by destination and package", () => {
+        it("Test for Maldives", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b5")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Maldives Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b5")
+                expect(item[2]).to.contain.text("Maldives Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b5#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Maldives")
+        })
+        it("Tests for Maldives packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b5+p1")
+            cy.get("#destination-bf").should("have.value", "Maldives")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b5+p2")
+            cy.get("#destination-bf").should("have.value", "Maldives")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b5+p3")
+            cy.get("#destination-bf").should("have.value", "Maldives")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Seychelles
+describe("Test by destination and package", () => {
+        it("Test for Seychelles", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b6")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Seychelles Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b6")
+                expect(item[2]).to.contain.text("Seychelles Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b6#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Seychelles")
+        })
+        it("Tests for Seychelles packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b6+p1")
+            cy.get("#destination-bf").should("have.value", "Seychelles")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b6+p2")
+            cy.get("#destination-bf").should("have.value", "Seychelles")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b6+p3")
+            cy.get("#destination-bf").should("have.value", "Seychelles")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Philippines
+describe("Test by destination and package", () => {
+    it("Test for Philippines", () => {
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b7")
+        cy.get(".navigation-link").then(item => {
+            expect(item[1]).to.contain.text("Philippines Page")
+            expect(item[1]).to.have.attr("href", "destination.html?b7")
+            expect(item[2]).to.contain.text("Philippines Packages")
+            expect(item[2]).to.have.attr("href", "destination.html?b7#destination-packages")
+        })
+        cy.get("#destination-bf").should("have.value", "Philippines")
+    })
+    it("Tests for Philippines packages", () => {
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b7+p1")
+        cy.get("#destination-bf").should("have.value", "Philippines")
         cy.get("#package-bf").should("have.value", "3 Star")
-        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9+p2")
-        cy.get("#destination-bf").should("have.value", "Tokyo")
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b7+p2")
+        cy.get("#destination-bf").should("have.value", "Philippines")
         cy.get("#package-bf").should("have.value", "4 Star")
-        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?c9+p3")
-        cy.get("#destination-bf").should("have.value", "Tokyo")
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b7+p3")
+        cy.get("#destination-bf").should("have.value", "Philippines")
         cy.get("#package-bf").should("have.value", "5 Star")
+    })
+})
+
+// Tulum
+describe("Test by destination and package", () => {
+        it("Test for Tulum", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b8")
+            cy.get(".navigation-link").then(item => {
+                expect(item[1]).to.contain.text("Tulum Page")
+                expect(item[1]).to.have.attr("href", "destination.html?b8")
+                expect(item[2]).to.contain.text("Tulum Packages")
+                expect(item[2]).to.have.attr("href", "destination.html?b8#destination-packages")
+            })
+            cy.get("#destination-bf").should("have.value", "Tulum")
+        })
+        it("Tests for Tulum packages", () => {
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b8+p1")
+            cy.get("#destination-bf").should("have.value", "Tulum")
+            cy.get("#package-bf").should("have.value", "3 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b8+p2")
+            cy.get("#destination-bf").should("have.value", "Tulum")
+            cy.get("#package-bf").should("have.value", "4 Star")
+            cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b8+p3")
+            cy.get("#destination-bf").should("have.value", "Tulum")
+            cy.get("#package-bf").should("have.value", "5 Star")
+        })
+    })
+    // Santorini
+describe("Test by destination and package", () => {
+    it("Test for Santorini", () => {
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b9")
+        cy.get(".navigation-link").then(item => {
+            expect(item[1]).to.contain.text("Santorini Page")
+            expect(item[1]).to.have.attr("href", "destination.html?b9")
+            expect(item[2]).to.contain.text("Santorini Packages")
+            expect(item[2]).to.have.attr("href", "destination.html?b9#destination-packages")
+        })
+        cy.get("#destination-bf").should("have.value", "Santorini")
+    })
+    it("Tests for Santorini packages", () => {
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b9+p1")
+        cy.get("#destination-bf").should("have.value", "Santorini")
+        cy.get("#package-bf").should("have.value", "3 Star")
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b9+p2")
+        cy.get("#destination-bf").should("have.value", "Santorini")
+        cy.get("#package-bf").should("have.value", "4 Star")
+        cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html?b9+sp")
+        cy.get("#destination-bf").should("have.value", "Santorini")
+        cy.get("#package-bf").should("have.value", "5 Star Special")
     })
 })

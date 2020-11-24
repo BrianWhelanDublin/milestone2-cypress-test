@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/BrianWhelanDublin/milestone2-cypress-test#readme",
   "devDependencies": {
-    "cypress": "^5.6.0"
+    "cypress": "^6.0.0"
   }
 }

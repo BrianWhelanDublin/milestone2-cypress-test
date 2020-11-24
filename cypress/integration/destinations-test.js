@@ -1,5 +1,4 @@
 // dubai page
-/*
 describe("Test dubai destination page", () => {
         it("navigates to dubai page", () => {
             cy.visit("https://brianwhelandublin.github.io/milestone-project-2/destination.html?c0")
@@ -40,6 +39,7 @@ describe("Test dubai destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Kyoto page
@@ -83,6 +83,7 @@ describe("Test Kyoto destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // london
@@ -126,6 +127,7 @@ describe("Test London destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Madrid
@@ -212,6 +214,7 @@ describe("Test New York destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // paris
@@ -255,6 +258,7 @@ describe("Test Paris destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // prague
@@ -298,6 +302,7 @@ describe("Test Prague destination page", () => {
             expect(item[8]).to.contain.text("Contact")
             expect(item[8]).to.have.attr("href", "index.html#contact")
         })
+        cy.wait(2000)
     })
 })
 
@@ -342,6 +347,7 @@ describe("Test Rome destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // singapore
@@ -385,6 +391,7 @@ describe("Test Singapore destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Tokyo
@@ -428,6 +435,7 @@ describe("Test Tokyo destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // antigua
@@ -471,6 +479,7 @@ describe("Test Antigua destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Bali
@@ -514,6 +523,7 @@ describe("Test Bali destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Capri
@@ -557,6 +567,7 @@ describe("Test Capri destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // fiji
@@ -600,6 +611,7 @@ describe("Test Fiji destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Koh Phi phi
@@ -643,6 +655,7 @@ describe("Test Koh Phi Phi destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Maldives
@@ -686,6 +699,7 @@ describe("Test Maldives destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // Seychelles
@@ -729,6 +743,7 @@ describe("Test Seychelles destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // philippines
@@ -772,6 +787,7 @@ describe("Test Philippines destination page", () => {
                 expect(item[8]).to.contain.text("Contact")
                 expect(item[8]).to.have.attr("href", "index.html#contact")
             })
+            cy.wait(2000)
         })
     })
     // tulum
@@ -815,9 +831,9 @@ describe("Test Tulum destination page", () => {
             expect(item[8]).to.contain.text("Contact")
             expect(item[8]).to.have.attr("href", "index.html#contact")
         })
+        cy.wait(2000)
     })
 })
-
 describe("Test Santorini destination page", () => {
     it("navigates to dubai page", () => {
         cy.visit("https://brianwhelandublin.github.io/milestone-project-2/destination.html?b9")
@@ -858,9 +874,9 @@ describe("Test Santorini destination page", () => {
             expect(item[8]).to.contain.text("Contact")
             expect(item[8]).to.have.attr("href", "index.html#contact")
         })
+        cy.wait(2000)
     })
 })
-*/
 describe("Empty destination page", () => {
     it("navigates destination page with no code", () => {
         cy.visit("https://brianwhelandublin.github.io/milestone-project-2/destination.html")
@@ -893,6 +909,7 @@ describe("Empty destination page", () => {
             expect(item[8]).to.contain.text("Contact")
             expect(item[8]).to.have.attr("href", "index.html#contact")
         })
+        cy.wait(2000)
     })
 })
 describe("Empty destination page wrong code", () => {

@@ -18,6 +18,7 @@ describe("Test Homepage", () => {
     })
     it("Tests Our destination Section", () => {
         cy.get("#destinations").scrollIntoView()
+        cy.wait(1000)
         cy.get(".destination-heading").should("contain", "Our Destinations")
         cy.get("#cities-slider").scrollIntoView()
         cy.get("#cities-slider").within(() => {
@@ -27,6 +28,7 @@ describe("Test Homepage", () => {
         })
 
         cy.get("#beach-slider").scrollIntoView()
+        cy.wait(1000)
         cy.get("#beach-slider").within(() => {
             cy.get(".destination-card").each(($el) => {
                 expect($el).to.exist
@@ -65,23 +67,22 @@ describe("Test Homepage", () => {
         cy.get("#signup-email").should("have.attr", "placeholder", "Email")
         cy.get("#newsletterModal").should("be.hidden")
         cy.get("#signup-email").type("email@email.com")
-            // cy.get("#signup-submit").click()
-            //cy.wait(500).then(() => {
-            //     cy.get("#newsletterModal").should("be.visible")
-            //})
+        cy.get("#signup-submit").click()
+        cy.wait(500).then(() => {
+            cy.get("#newsletterModal").should("be.visible")
+            cy.get("[data-cy=close-modal").click()
+            cy.wait(1000)
+        })
     })
     it("Test Contact Form Section", () => {
         cy.get("#contact").scrollIntoView()
         cy.get("#contactformModal").should("be.hidden")
-        cy.get("#contact-name").should("have.attr", "placeholder", "Name").type("name")
+        cy.get("#contact-name").should("have.attr", "placeholder", "Name").type("brian")
         cy.get("#contact-email").should("have.attr", "placeholder", "Email").type("email@email.com")
-        cy.get("#contact-message").should("have.attr", "placeholder", "Message").type("message")
-            // cy.get(".contact-btn").click()
-            //cy.wait(500).then(() => {
-            //     cy.get("#contactFormModal").should("be.visible")
-            //})
-    })
-    it("Tests footer", () => {
-        cy.get(".social-media-links").should("have.attr", "target", "_blank")
+        cy.get("#contact-message").should("have.attr", "placeholder", "Message").type("Hello")
+        cy.get(".contact-btn").click()
+        cy.wait(2000).then(() => {
+            cy.get("#contactformModal").should("be.visible")
+        })
     })
 })
