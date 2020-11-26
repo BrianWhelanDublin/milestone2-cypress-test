@@ -38,7 +38,7 @@ describe("Test footer on destination page", () => {
         cy.get("[data-cy=trip-lp]").click()
     })
 })
-describe("Test footer on destination page", () => {
+describe("Test footer on booking page", () => {
     it("Opens page", () => {
         cy.visit("https://brianwhelandublin.github.io/milestone-project-2/booking.html")
     })
