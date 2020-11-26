@@ -46,7 +46,7 @@ to install the dependencies needed for cypress.
 
    -  [javaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-       - javaScript was used throughout the website to make the site interactive. The javaScript will change what is being shown to the user depending on what they click.
+       - javaScript was used throughout to write the tests.
 
   - [Git](https://git-scm.com/)
 
@@ -58,7 +58,7 @@ to install the dependencies needed for cypress.
 
   - [Cypress](https://www.cypress.io/)
     
-     - Cypress was used to writing and execute automated tests for the page.
+     - Cypress was used to write and execute automated tests for the page.
 
  -  [Visual Studio Code](https://code.visualstudio.com/).
 
